@@ -1,0 +1,284 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Dummy text</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'main_asset/images/favicon.png' %}" />
+
+    <link rel="stylesheet" href="{% static 'main_asset/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'main_asset/css/vendor/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main_asset/css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'main_asset/css/swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main_asset/css/style.css' %}" />
+  </head>
+  <body>
+
+  <!-- Start Header Section -->
+  <div class="header-section d-none d-lg-block">
+    <div class="main-header">
+      <div class="container-fluid position-relative top-menu">
+        <div class="row align-items-center">
+          <div class="col-lg-2">
+            <div class="header-logo">
+              <a href="index.html"><img src="{% static 'main_asset/images/logo/logo.png' %}" alt="Logo"></a>
+            </div>
+          </div>
+          <div class="col-lg-7 position-static">
+            <div class="site-main-nav">
+              <nav class="site-nav">
+                <ul>
+                  {% for item in menu_items %}
+                    {% if not item.parent %}  <!-- Only top-level items -->
+                      <li class="menu-item {% if item.children.all %}menu-item-has-children{% endif %}">
+                        <a href="{{ item.url }}">{{ item.title }}</a>
+                        {% if item.children.all %}
+                          <ul class="mega-sub-menu">
+                            {% for child in item.children.all %}
+                              <li class="mega-dropdown {% if child.children.all %}menu-item-has-children{% endif %}">
+                                <a class="mega-title" href="{{ child.url }}">{{ child.title }}</a>
+                                {% if child.children.all %}
+                                  <ul class="mega-item">
+                                    {% for subchild in child.children.all %}
+                                      <li>
+                                        <a href="{{ subchild.url }}">{{ subchild.title }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Header Section -->
+
+  {% block content %}
+
+
+  {% endblock %}
+
+
+
+        <!--Footer Section Start-->
+        <div class="footer-area">
+            <div class="container">
+              <div class="footer-widget-area section-padding-6">
+                <div class="row justify-content-between">
+                  <!--Footer Widget Start-->
+                  <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                      <a class="footer-logo" href="#"
+                        ><img src="/static/main_asset/images/logo/logo-white.png" alt=""
+                      /></a>
+                      <div class="footer-widget-text">
+                        <p>
+                          A perfect blend of creativity, energy, communication,
+                          happiness and love. Let us arrange a smile for you.
+                        </p>
+                      </div>
+                      <div class="widget-social">
+                        <ul>
+                          <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                          </li>
+                          <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                          </li>
+                          <li>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                          </li>
+                          <li>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--Footer Widget End-->
+                  </div>
+    
+                  <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="footer-widget">
+                      <h4 class="footer-widget-title">Information</h4>
+    
+                      <div class="footer-widget-menu">
+                        <ul>
+                          <li><a href="#">Our Stories</a></li>
+                          <li><a href="#">Helps & Faqs</a></li>
+                          <li><a href="#">Store Location</a></li>
+                          <li><a href="#">Orders & Returns</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="footer-widget">
+                      <h4 class="footer-widget-title">My Account</h4>
+    
+                      <div class="footer-widget-menu">
+                        <ul>
+                          <li><a href="#">Delivery</a></li>
+                          <li><a href="#">Legal Notice</a></li>
+                          <li><a href="#">Secure payment</a></li>
+                          <li><a href="#">Sitemap</a></li>
+                          <li><a href="#">About us</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="footer-widget">
+                      <h4 class="footer-widget-title">Help</h4>
+    
+                      <div class="footer-widget-menu">
+                        <ul>
+                          <li><a href="#">FAQ’s</a></li>
+                          <li><a href="#">Pricing Plans</a></li>
+                          <li><a href="#">Track</a></li>
+                          <li><a href="#">Your Order</a></li>
+                          <li><a href="#">Returns</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="footer-widget">
+                      <h4 class="footer-widget-title">Customer Service</h4>
+    
+                      <div class="footer-widget-menu">
+                        <ul>
+                          <li><a href="#">My Account</a></li>
+                          <li><a href="#">Terms of Use</a></li>
+                          <li><a href="#">Deliveries & Returns</a></li>
+                          <li><a href="#">Gift card</a></li>
+                          <li><a href="#">Legal Notice</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Footer Section End-->
+
+           <!--Copyright Section Start-->
+      <div class="copyright-section">
+        <div class="container">
+          <div
+            class="copyright-wrapper text-center d-lg-flex align-items-center justify-content-between"
+          >
+            <!--Right Start-->
+            <div class="copyright-content">
+              <p>Copyright 2020 &copy; All Rights Reserved</p>
+            </div>
+            <!--Right End-->
+
+            <!--Right Start-->
+            <div class="copyright-payment">
+              <img src="/static/main_asset/images/payment.png" alt="" />
+            </div>
+            <!--Right End-->
+          </div>
+        </div>
+      </div>
+      <!--Copyright Section End-->
+
+      <!--Back To Start-->
+      <a href="#" class="back-to-top">
+        <i class="fa fa-angle-double-up"></i>
+      </a>
+      <!--Back To End-->
+
+      <!-- Quick View  Start-->
+      <div class="modal fade" id="exampleModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="quick-view-image">
+                    <img src="/static/main_asset/images/product/product-1.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="quick-view-content">
+                    <h4 class="product-title">Dummy product name</h4>
+                    <div class="thumb-price">
+                      <span class="current-price">$19.00</span>
+                      <span class="old-price">$29.00</span>
+                    </div>
+
+                    <p>
+                      On the other hand, we denounce with righteous indignation
+                      and dislike men who are so beguiled and demoralized by the
+                      charms of pleasure of the moment, so blinded by desire,
+                      that they cannot foresee the pain and trouble that are
+                      bound to ensue; and equal blame belongs to those who fail
+                      in their duty through weakness of will
+                    </p>
+
+                    <div class="quick-view-quantity-addcart d-flex flex-wrap">
+                      <form action="#">
+                        <div class="quantity d-inline-flex">
+                          <button type="button" class="sub">
+                            <i class="ti-minus"></i>
+                          </button>
+                          <input type="text" value="1" />
+                          <button type="button" class="add">
+                            <i class="ti-plus"></i>
+                          </button>
+                        </div>
+                      </form>
+                      <div class="addcart-btn">
+                        <button class="btn btn-primary">Add to cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Quick View Tags End-->
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="/static/main_asset/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/main_asset/js/popper.min.js"></script>
+    <script src="/static/main_asset/js/nav-drop.js"></script>
+    <script src="/static/main_asset/js/bootstrap.min.js"></script>
+    <script src="/static/main_asset/js/swiper-bundle.min.js"></script>
+    <script src="/static/main_asset/js/jquery.elevateZoom.min.js"></script>
+    <script src="/static/main_asset/js/select2.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/main_asset/js/main.js"></script>
+  </body>
+</html>

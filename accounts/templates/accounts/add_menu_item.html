@@ -1,0 +1,51 @@
+{% extends "accounts/admin_base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+<main id="main" class="main">
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add Menu Item</h5>
+
+            <!-- No Labels Form -->
+            <form class="row g-3" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label for="inputText" class="col-sm-2 col-form-label" aria-required="true">Title<span class="text-danger">*</span></label>
+                {{ form.title }}
+              </div>
+              <div class="col-md-6">
+                <label for="inputEmail" class="col-sm-2 col-form-label">URL</label>
+                {{ form.url }}
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Parent</label>
+                {{ form.parent }}
+              </div>
+              <div class="col-6">
+               <label for="inputNumber" class="col-sm-2 col-form-label">Order</label>
+                {{ form.order }}
+              </div>
+              <div class="col-md-6">
+                <label for="formFile" class="form-label">Image</label>
+                {{ form.image }}
+              </div>
+              <div class="">
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+              </div>
+            </form><!-- End No Labels Form -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}
