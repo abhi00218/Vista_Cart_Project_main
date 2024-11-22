@@ -25,41 +25,36 @@
           <div class="card-body">
             <h5 class="card-title">General Form Elements</h5>
 
-            <!-- General Form Elements -->
-            <form method="POST" enctype="multipart/form-data">
+            <!-- General Form Elements --><!-- End General Form Elements -->
+
+
+
+            <form class="row g-3" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Title</label>
+              <div class="col-md-6">
+                <label for="inputText" class="col-sm-2 col-form-label" aria-required="true">Title<span class="text-danger">*</span></label>
                 {{ form.title }}
               </div>
-              <div class="row mb-3">
+              <div class="col-md-6">
                 <label for="inputEmail" class="col-sm-2 col-form-label">URL</label>
                 {{ form.url }}
               </div>
-              <div class="row mb-3">
+              <div class="col-md-6">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Parent</label>
                 {{ form.parent }}
               </div>
-              <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">Order</label>
+              <div class="col-6">
+               <label for="inputNumber" class="col-sm-2 col-form-label">Order</label>
                 {{ form.order }}
               </div>
-              <div class="row mb-3">
-                <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
+              <div class="col-md-6">
+                <label for="formFile" class="form-label">Image</label>
                 {{ form.image }}
               </div>
-
-              <div class="row mb-3">
-                <div class="col-sm-6">
-                  <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
-                <div class="col-sm-6">
-                  <a href="{% url 'menu-view' %}" class="btn btn-secondary">Back to Menu List</a>
-                </div>
+              <div class="">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
               </div>
-
-            </form><!-- End General Form Elements -->
-
+            </form>
           </div>
         </div>
         

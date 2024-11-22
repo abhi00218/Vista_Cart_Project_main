@@ -24,7 +24,7 @@ class MenuItemForm(forms.ModelForm):
     url = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter URL'}))
     order = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter order number'}))
     parent = forms.ModelChoiceField(queryset=MenuItem.objects.all(), required=False, empty_label="None", widget=forms.Select(attrs={'class': 'form-select'}))
-    image = forms.ImageField(required=False, widget=forms.ClearableFileInput(attrs={'class': 'form-control','type' : 'file', 'id' : 'form-file'}))
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'class': 'form-control','type' : 'file', 'id' : 'form-file'}), required=True)
 
     def clean_image(self):
         image = self.cleaned_data.get('image')

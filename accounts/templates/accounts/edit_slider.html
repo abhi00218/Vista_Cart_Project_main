@@ -11,52 +11,37 @@
                         <h5 class="card-title">General Form Elements</h5>
 
                         <!-- Slider Form -->
-                        <form method="POST" enctype="multipart/form-data">
+                        <form class="row g-3" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
-
-
-
-                            <div class="mb-3">
-                                <label for="id_image" class="form-label">Slider Image</label>
-                                {{ form.image }} <!-- No need for add_class filter -->
+                            <div class="col-md-6">
+                                <label for="inputText" class="col-sm-2 col-form-label">Title</label>
+                                {{ form.title }}
                             </div>
-
-                            <div class="mb-3">
-                                <label for="id_title" class="form-label">Title</label>
-                                {{ form.title }} <!-- No need for add_class filter -->
+                            <div class="col-md-6">
+                                <label for="inputText" class="col-sm-2 col-form-label">Sub-Title</label>
+                                {{ form.subtitle }}
                             </div>
-
-                            <div class="mb-3">
-                                <label for="id_subtitle" class="form-label">Subtitle</label>
-                                {{ form.subtitle }} <!-- No need for add_class filter -->
+                            <div class="col-md-6">
+                                <label for="image" class="col-sm-2 col-form-label">Image</label>
+                                {{ form.image }}
                             </div>
-
-                            <div class="mb-3">
-                                <label for="id_description" class="form-label">Description</label>
-                                {{ form.description }} <!-- No need for add_class filter -->
+                            <div class="col-6">
+                                <label for="inputText" class="col-sm-3 col-form-label">Button Text</label>
+                                {{ form.button_text }}
                             </div>
-
-                            <div class="mb-3">
-                                <label for="id_button_text" class="form-label">Button Text</label>
-                                {{ form.button_text }} <!-- No need for add_class filter -->
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="id_button_link" class="form-label">Button Link</label>
-                                {{ form.button_link }} <!-- No need for add_class filter -->
-                            </div>
-
-                            <!-- New section field -->
-                            <div class="mb-3">
+                            <div class="col-md-12">
                                 <label for="id_select_section" class="form-label">Select Section</label>
                                 {{ form.select_section }} <!-- No need for add_class filter -->
+                            </div> 
+                            <div class="col-md-12">
+                                <label for="formText" class="form-label">Description</label>
+                                {{ form.description }}
                             </div>
 
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                            <a href="{% url 'slider-view' %}" class="btn btn-secondary">View Sliders</a>
+                            <div class="">
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
                         </form>
-
 
                         <!-- Back link -->
 
